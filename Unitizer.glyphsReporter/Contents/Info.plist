@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Unitizer</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.mekkablue.Unitizer</string>
+	<string>com.impallari.Unitizer</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -23,9 +23,9 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>UpdateFeedURL</key>
-	<string>https://raw.githubusercontent.com/mekkablue/Unitizer/master/Unitizer.glyphsReporter/Contents/Info.plist</string>
+	<string>https://raw.githubusercontent.com/impallari/Unitizer/master/Unitizer.glyphsReporter/Contents/Info.plist</string>
 	<key>productPageURL</key>
-	<string>https://github.com/mekkablue/Unitizer</string>
+	<string>https://github.com/impallari/Unitizer</string>
 	<key>productReleaseNotes</key>
 	<string>Initial Release</string>
 	<key>LSHasLocalizedDisplayName</key>
@@ -33,7 +33,7 @@
 	<key>NSAppleScriptEnabled</key>
 	<false/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright, Rainer Erich Scheichelbauer (mekkablue), 2015</string>
+	<string>Copyright, Pablo Impallari, 2015</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
