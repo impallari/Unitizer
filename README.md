@@ -1,3 +1,4 @@
-# Unitizer
-Unitizer Plugin for Glyphs
-Currently not working, needs update
+# Unitizer Plugin for Glyphs
+
+Currently not working
+Needs update
