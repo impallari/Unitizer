@@ -20,7 +20,7 @@ For example:
 - 54 units, used by many Photo-typesetting equipments and later Linotype
 - 96 units, used by Later Monotype
 
-In the age of digital font-editors we can use a 1000 units system. We have extreme liberty! but sometimes it's useful to put some constraints to ourselves and adopt a more restrained scheme.
+In the age of digital font-editors we can use a 1000 units system. We have extreme liberty and that is a good thing, but sometimes it's useful to put some constraints to ourselves and adopt a more restrained scheme.
 
 Whatever the unit system you want to work with, using this plugin all you have to do is to define the size of *your unit* and set a custom parameter, and you will get handy guidelines that will make your life easier.
 
