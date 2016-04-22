@@ -111,9 +111,11 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 				currentMaster = Layer.associatedFontMaster()
 				yBottom = currentMaster.descender
 				yTop    = currentMaster.ascender
-				customParameter = currentMaster.customPropertyForKey_("unitizerUnit")
+				customParameter = currentMaster.customParameters['unitizerUnit']
 				if customParameter:
-					unit = float(customParameter.value)
+					unit = float(customParameter)
+				else:
+					print "Unitizer plugin: Add your unitizerUnit custom parameter to your master"
 			except Exception as e:
 				pass
 			
