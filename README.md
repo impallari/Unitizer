@@ -2,7 +2,7 @@
 
 This is a plugin for the [Glyphs font editor](http://glyphsapp.com/). After installation, it will add the menu item *View > Show Unitizer*.
 
-It's helpful for working in Unitized fonts. It display *unit guidelines* in the background (correspondong to a value that you can configure at will) of the current glyph in Edit view (as seen in Ikarus and DTL
+It's helpful for working in Unitized fonts. It display *unit guidelines* in the background (correspondong to a value that you can configure at will) of the current glyph in Edit view.
 
 ![Showing Units in the background.](unitizer01.png "Showing Units in the background")
 
