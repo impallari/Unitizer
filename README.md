@@ -17,16 +17,18 @@ For example:
 - 18 units, used by Monotype
 - 36 units, used by Lumitype
 - 48 units, used by Berthold
-- 54 units, used by many Photo-typesetting and later Linotype
+- 54 units, used by many Photo-typesetting equipments and later Linotype
 - 96 units, used by Later Monotype
 
 In the age of digital font-editors we can use a 1000 units system. We have extreme liberty! but sometimes it's useful to put some constraints to ourselves and adopt a more restrained scheme.
-Whatever the unit system you want to work with, using this macro all you have to do is define the size of your unit and set a custom parameter in the master info, and you will get handy guidellines that will make your life easier.
+
+Whatever the unit system you want to work with, using this plugin all you have to do is to define the size of *your unit* and set a custom parameter, and you will get handy guidellines that will make your life easier.
 
 **If you want to learn more:**
-1. Read Frank E. Blokland’s [research on unitization](http://www.lettermodel.org/)
-2. Watch Matthew Carter's [comments on unitization](https://vimeo.com/39071550#t=954s)
 
+- Read Frank E. Blokland’s [research on unitization](http://www.lettermodel.org/)
+- Watch Matthew Carter's [comments on unitization](https://vimeo.com/39071550#t=954s)
+- Search for information about Benton's self spacing type
 
 ### Installation
 
