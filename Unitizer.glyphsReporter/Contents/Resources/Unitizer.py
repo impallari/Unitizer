@@ -5,6 +5,7 @@ import objc
 from Foundation import *
 from AppKit import *
 import sys, os, re
+from math import pi,tan
 
 MainBundle = NSBundle.mainBundle()
 path = MainBundle.bundlePath() + "/Contents/Scripts"
@@ -111,6 +112,8 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 				currentMaster = Layer.associatedFontMaster()
 				yBottom = currentMaster.descender
 				yTop    = currentMaster.ascender
+				slant   = currentMaster.italicAngle / 180 * pi
+				displacement = tan(slant) * (yTop-yBottom)
 				customParameter = currentMaster.customParameters['unitizerUnit']
 				if customParameter:
 					unit = float(customParameter)
@@ -124,10 +127,17 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 			gap = layerWidth % unit
 			gapStart = layerWidth-gap
 			if gap:
-				origin = NSPoint( gapStart, yBottom )
-				size =   NSPoint( gap, yTop-yBottom )
-				gapRectangle = NSRect( origin, size )
-				NSBezierPath.fillRect_( gapRectangle )
+				bl = NSPoint( gapStart, yBottom )
+				tl = NSPoint( gapStart + displacement, yTop )
+				br = NSPoint( gapStart + gap, yBottom)
+				tr = NSPoint( gapStart + gap + displacement, yTop )
+				gapRectangle = NSBezierPath.alloc().init()
+				gapRectangle.moveToPoint_(bl)
+				gapRectangle.lineToPoint_(tl)
+				gapRectangle.lineToPoint_(tr)
+				gapRectangle.lineToPoint_(br)
+				gapRectangle.lineToPoint_(bl)
+				gapRectangle.fill()
 
 			# draw vertical lines:
 			x = unit   # starting point = 1 unit away from LSB
@@ -136,7 +146,7 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 			while x <= gapStart:
 				# draw vertical line:
 				unitLines.moveToPoint_( NSPoint( x, yBottom ) )
-				unitLines.lineToPoint_( NSPoint( x, yTop    ) )
+				unitLines.lineToPoint_( NSPoint( x+displacement, yTop    ) )
 				x += unit # advance to the right
 			if gap:
 				# set color for unit lines:
