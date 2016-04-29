@@ -39,6 +39,8 @@ Whatever the unit system you want to work with, using this plugin all you have t
 
 ### Usage Instructions
 
+![Adding your custom parameter to the Masters tab.](unitizer02.png "Adding your custom parameter to the Masters tab")
+
 1. In *Font Info > Masters* add a custom parameter named **unitizerUnit** and set a value of your preference. (*10*, *12*, *20* or whatever value you want **your unit** to be).
 2. Open a glyph in Edit View.
 3. Use *View > Show Unitizer* to toggle the display of guidelines, according to your *unitizerUnit* custom parameter value.
