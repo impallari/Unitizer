@@ -53,6 +53,7 @@ The plugin works in the latest version of Glyphs.
 ### License
 
 Copyright 2016 Pablo Impallar (@impallari).
+Contributions by Simon Cozens (@simoncozens).
 Based on sample code by Rainer Erich Scheichelbauer (@mekkablue).
 
 Licensed under the Apache License, Version 2.0 (the "License");
