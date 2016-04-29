@@ -26,7 +26,7 @@ Whatever the unit system you want to work with, using this plugin all you have t
 
 **If you want to learn more:**
 
-- Read about [Benton's self spacing type](https://archive.org/stream/BentonWaldoSpecimenBooklet1886/benton-waldo-specimen-booklet-1886-sos-0600dpijpg#page/n4/mode/1up)
+- Read about Benton's [self spacing type](https://archive.org/stream/BentonWaldoSpecimenBooklet1886/benton-waldo-specimen-booklet-1886-sos-0600dpijpg#page/n4/mode/1up)
 - Watch Matthew Carter's [comments on unitization](https://vimeo.com/39071550#t=954s)
 - Read Frank E. Blokland’s [research on unitization](http://www.lettermodel.org/)
 
