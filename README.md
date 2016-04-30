@@ -26,9 +26,9 @@ Whatever the unit system you want to work with, using this plugin all you have t
 
 **If you want to learn more:**
 
-- Read Frank E. Blokland’s [research on unitization](http://www.lettermodel.org/)
+- Read about Benton's [self spacing type](https://archive.org/stream/BentonWaldoSpecimenBooklet1886/benton-waldo-specimen-booklet-1886-sos-0600dpijpg#page/n4/mode/1up)
 - Watch Matthew Carter's [comments on unitization](https://vimeo.com/39071550#t=954s)
-- Search for information about Benton's self spacing type
+- Read Frank E. Blokland’s [research on unitization](http://www.lettermodel.org/)
 
 ### Installation
 
@@ -38,6 +38,8 @@ Whatever the unit system you want to work with, using this plugin all you have t
 
 
 ### Usage Instructions
+
+![Adding your custom parameter to the Masters tab.](unitizer02.png "Adding your custom parameter to the Masters tab")
 
 1. In *Font Info > Masters* add a custom parameter named **unitizerUnit** and set a value of your preference. (*10*, *12*, *20* or whatever value you want **your unit** to be).
 2. Open a glyph in Edit View.
@@ -53,6 +55,7 @@ The plugin works in the latest version of Glyphs.
 ### License
 
 Copyright 2016 Pablo Impallar (@impallari).
+Contributions by Simon Cozens (@simoncozens).
 Based on sample code by Rainer Erich Scheichelbauer (@mekkablue).
 
 Licensed under the Apache License, Version 2.0 (the "License");
