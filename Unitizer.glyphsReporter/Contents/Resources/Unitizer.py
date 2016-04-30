@@ -114,6 +114,8 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 				yTop    = currentMaster.ascender
 				slant   = currentMaster.italicAngle / 180 * pi
 				displacement = tan(slant) * (yTop-yBottom)
+				# See https://github.com/impallari/Unitizer/issues/4 for explanation
+				xDisplacement = (-yBottom + 0.5 * currentMaster.xHeight) * tan(slant)
 				customParameter = currentMaster.customParameters['unitizerUnit']
 				if customParameter:
 					unit = float(customParameter)
@@ -140,7 +142,8 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 				gapRectangle.fill()
 
 			# draw vertical lines:
-			x = unit   # starting point = 1 unit away from LSB
+			# starting point = 1 unit away from LSB at the descender line.
+			x = unit - descenderDisplacement
 			unitLines = NSBezierPath.alloc().init() # initialize a path object myPath
 			# while x < gapStart:
 			while x <= gapStart:
