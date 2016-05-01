@@ -127,7 +127,7 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 			# color the width gap:
 			NSColor.redColor().set() # set color to red
 			gap = layerWidth % unit
-			gapStart = layerWidth-gap
+			gapStart = layerWidth-gap - xDisplacement
 			if gap:
 				bl = NSPoint( gapStart, yBottom )
 				tl = NSPoint( gapStart + displacement, yTop )
@@ -143,7 +143,7 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 
 			# draw vertical lines:
 			# starting point = 1 unit away from LSB at the descender line.
-			x = unit - descenderDisplacement
+			x = unit - xDisplacement
 			unitLines = NSBezierPath.alloc().init() # initialize a path object myPath
 			# while x < gapStart:
 			while x <= gapStart:
