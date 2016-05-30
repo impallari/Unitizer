@@ -54,7 +54,7 @@ The plugin works in the latest version of Glyphs.
 
 ### License
 
-Copyright 2016 Pablo Impallar (@impallari).
+Copyright 2016 Pablo Impallari (@impallari).
 Contributions by Simon Cozens (@simoncozens).
 Based on sample code by Rainer Erich Scheichelbauer (@mekkablue).
 
