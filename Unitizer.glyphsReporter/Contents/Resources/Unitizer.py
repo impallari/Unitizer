@@ -54,43 +54,10 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 			self.logToConsole( "keyEquivalent: %s" % str(e) )
 	
 	def modifierMask( self ):
-		"""
-		Use any combination of these to determine the modifier keys for your default shortcut:
-			return NSShiftKeyMask | NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask
-		Or:
-			return 0
-		... if you do not want to set a shortcut.
-		"""
-		try:
-			return 0
-		except Exception as e:
-			self.logToConsole( "modifierMask: %s" % str(e) )
+		return 0
 	
 	def drawForegroundForLayer_( self, Layer ):
-		"""
-		Whatever you draw here will be displayed IN FRONT OF the paths.
-		Setting a color:
-			NSColor.colorWithCalibratedRed_green_blue_alpha_( 1.0, 1.0, 1.0, 1.0 ).set() # sets RGBA values between 0.0 and 1.0
-			NSColor.redColor().set() # predefined colors: blackColor, blueColor, brownColor, clearColor, cyanColor, darkGrayColor, grayColor, greenColor, lightGrayColor, magentaColor, orangeColor, purpleColor, redColor, whiteColor, yellowColor
-		Drawing a path:
-			myPath = NSBezierPath.alloc().init()  # initialize a path object myPath
-			myPath.appendBezierPath_( subpath )   # add subpath to myPath
-			myPath.fill()   # fill myPath with the current NSColor
-			myPath.stroke() # stroke myPath with the current NSColor
-		To get an NSBezierPath from a GSPath, use the bezierPath() method:
-			myPath.bezierPath().fill()
-		You can apply that to a full layer at once:
-			if len( myLayer.paths > 0 ):
-				myLayer.bezierPath()       # all closed paths
-				myLayer.openBezierPath()   # all open paths
-		See:
-		https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSBezierPath_Class/Reference/Reference.html
-		https://developer.apple.com/library/mac/documentation/cocoa/reference/applicationkit/classes/NSColor_Class/Reference/Reference.html
-		"""
-		try:
-			pass
-		except Exception as e:
-			self.logToConsole( "drawForegroundForLayer_: %s" % str(e) )
+		pass
 	
 	def drawBackgroundForLayer_( self, Layer ):
 		"""
@@ -162,30 +129,7 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 			self.logToConsole( "drawBackgroundForLayer_: %s" % str(e) )
 	
 	def drawBackgroundForInactiveLayer_( self, Layer ):
-		"""
-		Whatever you draw here will be displayed behind the paths,
-		but for inactive glyphs in the Edit view.
-		"""
-		try:
-			pass
-		except Exception as e:
-			self.logToConsole( "drawBackgroundForInactiveLayer_: %s" % str(e) )
-	
-	def drawTextAtPoint( self, text, textPosition, fontSize=9.0, fontColor=NSColor.brownColor() ):
-		"""
-		Use self.drawTextAtPoint( "blabla", myNSPoint ) to display left-aligned text at myNSPoint.
-		"""
-		try:
-			glyphEditView = self.controller.graphicView()
-			currentZoom = self.getScale()
-			fontAttributes = { 
-				NSFontAttributeName: NSFont.labelFontOfSize_( fontSize/currentZoom ),
-				NSForegroundColorAttributeName: fontColor }
-			displayText = NSAttributedString.alloc().initWithString_attributes_( text, fontAttributes )
-			textAlignment = 3 # top left: 6, top center: 7, top right: 8, center left: 3, center center: 4, center right: 5, bottom left: 0, bottom center: 1, bottom right: 2
-			glyphEditView.drawText_atPoint_alignment_( displayText, textPosition, textAlignment )
-		except Exception as e:
-			self.logToConsole( "drawTextAtPoint: %s" % str(e) )
+		pass
 	
 	def needsExtraMainOutlineDrawingForInactiveLayer_( self, Layer ):
 		"""
@@ -197,35 +141,6 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 		otherwise users will get an empty Preview.
 		"""
 		return True
-	
-	def getHandleSize( self ):
-		"""
-		Returns the current handle size as set in user preferences.
-		Use: self.getHandleSize() / self.getScale()
-		to determine the right size for drawing on the canvas.
-		"""
-		try:
-			Selected = NSUserDefaults.standardUserDefaults().integerForKey_( "GSHandleSize" )
-			if Selected == 0:
-				return 5.0
-			elif Selected == 2:
-				return 10.0
-			else:
-				return 7.0 # Regular
-		except Exception as e:
-			self.logToConsole( "getHandleSize: HandleSize defaulting to 7.0. %s" % str(e) )
-			return 7.0
-
-	def getScale( self ):
-		"""
-		self.getScale() returns the current scale factor of the Edit View UI.
-		Divide any scalable size by this value in order to keep the same apparent pixel size.
-		"""
-		try:
-			return self.controller.graphicView().scale()
-		except:
-			self.logToConsole( "Scale defaulting to 1.0" )
-			return 1.0
 	
 	def setController_( self, Controller ):
 		"""
