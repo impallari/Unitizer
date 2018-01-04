@@ -2,17 +2,12 @@
 # encoding: utf-8
 
 import objc
-from Foundation import *
-from AppKit import *
+import GlyphsApp
+from Foundation import NSObject, NSPoint
+from AppKit import NSBezierPath, NSColor
 import sys, os, re
 from math import pi,tan
 
-MainBundle = NSBundle.mainBundle()
-path = MainBundle.bundlePath() + "/Contents/Scripts"
-if not path in sys.path:
-	sys.path.append( path )
-
-import GlyphsApp
 
 GlyphsReporterProtocol = objc.protocolNamed( "GlyphsReporter" )
 
