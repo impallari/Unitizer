@@ -1,65 +1,20 @@
-#!/usr/bin/env python
 # encoding: utf-8
 
 import objc
-import GlyphsApp
-from Foundation import NSObject, NSPoint
-from AppKit import NSBezierPath, NSColor
+from GlyphsApp import *
+from GlyphsApp.plugins import *
+# from Foundation import NSObject, NSPoint
+# from AppKit import NSBezierPath, NSColor
 import sys, os, re
 from math import pi,tan
+import traceback
 
-
-GlyphsReporterProtocol = objc.protocolNamed( "GlyphsReporter" )
-
-class Unitizer ( NSObject, GlyphsReporterProtocol ):
+class Unitizer (ReporterPlugin ):
 	
-	def init( self ):
-		"""
-		Put any initializations you want to make here.
-		"""
-		try:
-			return self
-		except Exception as e:
-			self.logToConsole( "init: %s" % str(e) )
+	def settings(self):
+		self.menuName = "Unitizer"
 	
-	def interfaceVersion( self ):
-		"""
-		Distinguishes the API version the plugin was built for. 
-		Return 1.
-		"""
-		try:
-			return 1
-		except Exception as e:
-			self.logToConsole( "interfaceVersion: %s" % str(e) )
-	
-	def title( self ):
-		"""
-		This is the name as it appears in the menu in combination with 'Show'.
-		E.g. 'return "Nodes"' will make the menu item read "Show Nodes".
-		"""
-		try:
-			return "Unitizer"
-		except Exception as e:
-			self.logToConsole( "title: %s" % str(e) )
-	
-	def keyEquivalent( self ):
-		"""
-		The key for the keyboard shortcut. Set modifier keys in modifierMask() further below.
-		Pretty tricky to find a shortcut that is not taken yet, so be careful.
-		If you are not sure, use 'return None'. Users can set their own shortcuts in System Prefs.
-		"""
-		try:
-			return None
-		except Exception as e:
-			self.logToConsole( "keyEquivalent: %s" % str(e) )
-	
-	def modifierMask( self ):
-		return 0
-	
-	def drawForegroundForLayer_( self, Layer ):
-		pass
-	
-	def drawBackgroundForLayer_( self, Layer ):
+	def background( self, Layer ):
 		"""
 		Whatever you draw here will be displayed BEHIND the paths.
 		"""
@@ -84,7 +39,7 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 				else:
 					print "Unitizer plugin: Add your unitizerUnit custom parameter to your master"
 			except Exception as e:
-				pass
+				print traceback.format_exc()
 			
 			# color the width gap:
 			NSColor.redColor().set() # set color to red
@@ -126,10 +81,7 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 			unitLines.stroke() # add stroke to the path object
 			
 		except Exception as e:
-			self.logToConsole( "drawBackgroundForLayer_: %s" % str(e) )
-	
-	def drawBackgroundForInactiveLayer_( self, Layer ):
-		pass
+			print traceback.format_exc()
 	
 	def needsExtraMainOutlineDrawingForInactiveLayer_( self, Layer ):
 		"""
@@ -141,21 +93,3 @@ class Unitizer ( NSObject, GlyphsReporterProtocol ):
 		otherwise users will get an empty Preview.
 		"""
 		return True
-	
-	def setController_( self, Controller ):
-		"""
-		Use self.controller as object for the current view controller.
-		"""
-		try:
-			self.controller = Controller
-		except Exception as e:
-			self.logToConsole( "Could not set controller" )
-	
-	def logToConsole( self, message ):
-		"""
-		The variable 'message' will be passed to Console.app.
-		Use self.logToConsole( "bla bla" ) for debugging.
-		"""
-		myLog = "Show %s plugin:\n%s" % ( self.title(), message )
-		print myLog
-		NSLog( myLog )
