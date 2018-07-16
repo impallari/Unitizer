@@ -1,8 +1,8 @@
 # Unitizer Plugin for Glyphs
 
-This is a plugin for the [Glyphs font editor](http://glyphsapp.com/). After installation, it will add the menu item *View > Show Unitizer*.
+This is a plugin for the [Glyphs font editor](http://glyphsapp.com/). After installation, it will add the menu item `View` > `Show Unitizer`.
 
-It's helpful for working in Unitized fonts. It display *unit guidelines* in the background (correspondong to a value that you can configure at will) of the current glyph in Edit view.
+It's helpful for working in Unitized fonts. It display *unit guidelines* in the background (corresponding to a value that you can configure at will) of the current glyph in Edit view.
 
 ![Showing Units in the background.](unitizer01.png "Showing Units in the background")
 
@@ -42,9 +42,9 @@ Whatever the unit system you want to work with, using this plugin all you have t
 
 ![Adding your custom parameter to the Masters tab.](unitizer02.png "Adding your custom parameter to the Masters tab")
 
-1. In *Font Info > Masters* add a custom parameter named **unitizerUnit** and set a value of your preference. (*10*, *12*, *20* or whatever value you want **your unit** to be).
+1. In `Font Info` > `Masters` add a custom parameter named **unitizerUnit** and set a value of your preference. (*10*, *12*, *20* or whatever value you want **your unit** to be).
 2. Open a glyph in Edit View.
-3. Use *View > Show Unitizer* to toggle the display of guidelines, according to your *unitizerUnit* custom parameter value.
+3. Use `View` > `Show Unitizer` to toggle the display of guidelines, according to your *unitizerUnit* custom parameter value.
 4. If the advance width of your current glyph does not fit in your unit scheme, the difference will be shown in red.
 
 
