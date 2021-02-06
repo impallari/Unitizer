@@ -1,20 +1,21 @@
 # encoding: utf-8
-
+from __future__ import division, print_function, unicode_literals
 import objc
 from GlyphsApp import *
 from GlyphsApp.plugins import *
-# from Foundation import NSObject, NSPoint
-# from AppKit import NSBezierPath, NSColor
 import sys, os, re
 from math import pi,tan
 import traceback
 
-class Unitizer (ReporterPlugin ):
-	
+class Unitizer (ReporterPlugin):
+
+	@objc.python_method
 	def settings(self):
 		self.menuName = "Unitizer"
+		self.hasWarned = False
 	
-	def background( self, Layer ):
+	@objc.python_method
+	def background(self, Layer):
 		"""
 		Whatever you draw here will be displayed BEHIND the paths.
 		"""
@@ -23,7 +24,7 @@ class Unitizer (ReporterPlugin ):
 			layerWidth = Layer.width  # get width of the layer
 			yBottom = -200.0 # default descender
 			yTop    =  800.0 # default ascender
-			unit    = 40.0   # default unit
+			unit    =  40.0  # default unit
 			
 			try: # try to overwrite defaults with actual values from the master:
 				currentMaster = Layer.associatedFontMaster()
@@ -36,10 +37,11 @@ class Unitizer (ReporterPlugin ):
 				customParameter = currentMaster.customParameters['unitizerUnit']
 				if customParameter:
 					unit = float(customParameter)
-				else:
-					print "Unitizer plugin: Add your unitizerUnit custom parameter to your master"
+				elif not self.hasWarned:
+					print("Unitizer plugin: Add your unitizerUnit custom parameter to your master")
+					self.hasWarned = True
 			except Exception as e:
-				print traceback.format_exc()
+				print(traceback.format_exc())
 			
 			# color the width gap:
 			NSColor.redColor().set() # set color to red
@@ -81,15 +83,5 @@ class Unitizer (ReporterPlugin ):
 			unitLines.stroke() # add stroke to the path object
 			
 		except Exception as e:
-			print traceback.format_exc()
-	
-	def needsExtraMainOutlineDrawingForInactiveLayer_( self, Layer ):
-		"""
-		Whatever you draw here will be displayed in the Preview at the bottom.
-		Remove the method or return True if you want to leave the Preview untouched.
-		Return True to leave the Preview as it is and draw on top of it.
-		Return False to disable the Preview and draw your own.
-		In that case, don't forget to add Bezier methods like in drawForegroundForLayer_(),
-		otherwise users will get an empty Preview.
-		"""
-		return True
+			print(traceback.format_exc())
+

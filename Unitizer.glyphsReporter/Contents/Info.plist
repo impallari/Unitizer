@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
-	<key>CFBundleDisplayName</key>
-	<string>Unitizer</string>
+	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>plugin</string>
 	<key>CFBundleIdentifier</key>
@@ -14,12 +12,10 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>Unitizer</string>
-	<key>CFBundlePackageType</key>
-	<string>BNDL</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.0</string>
+	<string>1.2.1</string>
 	<key>UpdateFeedURL</key>
 	<string>https://raw.githubusercontent.com/impallari/Unitizer/master/Unitizer.glyphsReporter/Contents/Info.plist</string>
 	<key>productPageURL</key>
@@ -30,9 +26,5 @@
 	<string>Copyright, Pablo Impallari, 2015</string>
 	<key>NSPrincipalClass</key>
 	<string>Unitizer</string>
-	<key>PyMainFileNames</key>
-	<array>
-		<string>../MacOS/main.py</string>
-	</array>
 </dict>
 </plist>
